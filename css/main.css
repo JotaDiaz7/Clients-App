@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Pacifico&family=Ubuntu:wght@300&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+}
+:root{
+    --color1:rgb(29, 29, 68);
+    --color2:black;
+    --color3: rgb(37, 118, 180);
+    --color4:rgb(2, 77, 134);
+    --h1:'Pacifico', cursive;
+    --font1:'Exo 2', sans-serif;
+    --font2:'Ubuntu', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main{
+    border: 2px solid var(--color2);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px var(--color2);
+}
+a{
+    text-decoration: none;
+    color: var(--color4);
+}
+.first1{
+    border: 1px solid var(--color2);
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 20%;
+}
+#h1{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    font-family: var(--h1);
+    font-size: 3.5rem;
+    text-shadow: 0px 0px 20px var(--color3);
+}
+#add{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color2);
+    box-shadow: 0px 0px 5px inset var(--color2);
+    cursor: pointer;
+    font-family: var(--font2);
+    font-size: 1.7rem;
+    background-color: transparent;
+}
+i{
+    color: rgb(24, 109, 174);
+}
+#add p i{
+    margin-right: 10px;
+}
+.first2{
+    border: 1px solid var(--color2);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 80%;
+}
+.second1{
+    width: 100%;
+    border-bottom: 1px solid var(--color2);
+    height: 10%;
+}
+.second2{
+    width: 100%;
+    height: 90%;
+}
+.d-none{
+    display: none !important;
+}
+.error{
+    box-shadow: 1px 0px 10px inset rgb(101, 1, 1);
+    border-radius: 30px;
+}
+.hidden{
+    position: absolute;
+    opacity: 0;
+    z-index: -2;
+}

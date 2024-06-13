@@ -1,0 +1,298 @@
+body {
+    height: auto !important;
+}
+.second1{
+    display: flex;
+    align-items: center;
+}
+.second1 a{
+    margin-left: 2%;
+}
+.second1 i{
+    font-size: 2rem;
+    color: var(--color4);
+    text-shadow: 1px 2px 7px var(--color2);
+    cursor: pointer;
+}
+.first1 {
+    height: 20vh !important;
+}
+#wrap{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#wrap_foot{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+#wrap_img{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container_img{
+    width: 95%;
+    height: 85%;
+    background-image: url('../pictures/user.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#container_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+#wrap_dates{
+    width: 100%;
+    height: 60%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#wrap_dates_head{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+}
+.wrap_dates_foot{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.date{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.date label, #delete_label{
+    font-family: var(--font1);
+    color: var(--color4);
+    font-size: 1.1rem;
+}
+.date input, .date select, #comment, .comment_date, .comment_time, .comment_text{
+    font-family: var(--font2);
+    background-color: transparent;
+    border: none !important;
+    font-size: 1.1rem;
+    color: var(--color3);
+    width: 70%;
+    padding-left: 10px;
+}
+.date input::placeholder, .date input::placeholder, #delete_name::placeholder, #comment::placeholder, .comment_date::placeholder, .comment_time::placeholder, .comment_text::placeholder{
+    color: var(--color3);
+}
+.date input:focus, .date select:focus, .date input:focus, #delete_name:focus, #comment:focus, .comment_date:focus, .comment_time:focus, .comment_text:focus{
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: unset !important;
+    outline: unset !important;
+    border: none !important;
+}
+.address{
+    width: 100% !important;
+}
+.submit_dates{
+    padding: 10px;
+    font-family: var(--font2);
+    background-color: transparent;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color3);
+    box-shadow: 0px 0px 5px inset var(--color2);
+    border-radius: 20px;
+    cursor: pointer;
+    width: 35%;
+    margin-right: 10%;
+}
+#wrap_delete{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.519);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: -3;
+    transition: all 0.5s ease;
+}
+.wrap_delete_show{
+    opacity: 1 !important;
+    z-index: 2 !important;
+}
+#message_delete{
+    width: 90%;
+    height: 25%;
+    background-color: var(--color1);
+    border: 2px solid var(--color2);
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px var(--color2);
+    opacity: 0;
+    transition: all 0.5s ease;
+    margin-bottom: 50px;
+}
+.message_delete_show{
+    opacity: 1 !important;
+    margin-bottom: 0px !important;
+}
+#message_delete_head{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#delete_name{
+    font-family: var(--font2);
+    background-color: transparent;
+    border: none !important;
+    font-size: 1.3rem;
+    color: var(--color3);
+    text-align: center;
+    margin-top: 10px;
+}
+#message_delete_foot{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form_comments{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#wrap_comment{
+    width: 90%;
+    height: 100%;
+    box-shadow: 0px 0px 8px inset var(--color2);
+    border-radius: 50px;
+}
+#comment{
+    width: 99%;
+    height: 100%;
+    padding-left: 10px;
+}
+#wrap_submit_comment{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#submit_comment{
+    padding: 10px 20px;
+    font-family: var(--font2);
+    background-color: transparent;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color3);
+    box-shadow: 0px 0px 5px inset var(--color2);
+    border-radius: 20px;
+    cursor: pointer;
+}
+#section_comments{
+    width: 100%;
+    height: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 10px 0px;
+}
+#section_comments::-webkit-scrollbar {
+    width: 12px;               
+}  
+#section_comments::-webkit-scrollbar-track {
+    background: transparent;        
+}
+#section_comments::-webkit-scrollbar-thumb {
+    background-color: var(--color1);  
+    border-radius: 20px;       
+    border: 3px solid var(--color3);  
+}
+.comments{
+    width: 100%;
+    height: 20%;
+    box-shadow: 0px 0px 4px inset var(--color2);
+    display: flex;
+    flex-direction: column;
+}
+.comment_wrap{
+    display: flex;
+    height: 100%;
+}
+.comment_date_wrap{
+    width: 35%;
+    height: 100%;
+}
+.comment_time_wrap{
+    width: 25%;
+    height: 100%;
+}
+.comment_date, .comment_time{
+    width: 100%;
+    height: 100%;
+}
+.div_comment{
+    width: 93%;
+    height: 100%;
+}
+.comment_text{
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+}
+.delete_comment{
+    height: 100%;
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#no_found{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#no_found p{
+    font-family: var(--font1);
+    font-size: 2rem;
+    color: var(--color3);
+}
+#no_found i{
+    font-size: 4rem ;
+    margin: 20px 0px;
+}
+.update_focus{
+    box-shadow: 0px 0px 3px inset var(--color2);
+    border-radius: 20px;
+}
+.delete_comment_button{
+    background: transparent;
+    border: none;
+}
+.delete_comment_button i{
+    cursor: pointer;
+}

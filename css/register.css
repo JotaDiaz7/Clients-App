@@ -1,0 +1,127 @@
+body {
+    height: auto !important;
+}
+.second1{
+    display: flex;
+    align-items: center;
+}
+.second1 a{
+    margin-left: 2%;
+}
+.second1 i{
+    font-size: 2rem;
+    color: var(--color4);
+    text-shadow: 1px 2px 7px var(--color2);
+    cursor: pointer;
+}
+.first1 {
+    height: 20vh !important;
+}
+
+form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#form-body{
+    display: flex;
+    flex-wrap: wrap;
+}
+.wrap{
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mini_wrap{
+    width: 80%;
+    height: 60%;
+    box-shadow: 0px 0px 5px inset var(--color2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register_input, .register_user{
+    padding: 10px;
+    font-family: var(--font2);
+    background-color: transparent;
+    border: none !important;
+    font-size: 1.1rem;
+    color: var(--color3);
+}
+.register_input::placeholder, .register_user::placeholder{
+    color: var(--color3);
+}
+.register_input:focus, .register_user:focus{
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: unset !important;
+    outline: unset !important;
+    border: none !important;
+}
+#photo{
+    color: var(--color3);
+    font-family: var(--font2);
+    font-size: 1.1rem;
+    padding-left: 10px;
+}
+#file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+#form-footer{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#send{
+    padding: 10px;
+    font-family: var(--font2);
+    background-color: transparent;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color3);
+    box-shadow: 0px 0px 5px inset var(--color2);
+    border-radius: 20px;
+    cursor: pointer;
+    width: 70%;
+}
+#sent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#sent p{
+    font-family: var(--font1);
+    font-size: 2rem;
+    color: var(--color3);
+}
+#sent i{
+    font-size: 4rem ;
+    margin: 20px 0px;
+    animation: correct 1.5s ease;
+}
+@keyframes correct {
+    0%{
+        scale: 0;
+    }
+    50%{
+        scale: 3;
+    }
+    100%{
+        scale: 1;
+    }
+    
+}
