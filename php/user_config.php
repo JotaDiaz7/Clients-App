@@ -20,7 +20,7 @@
         $time = htmlspecialchars($_POST['time']);
         //$file = addslashes(file_get_contents($_FILES['file']));
 
-        $consult = "INSERT INTO comments (`user`, `date`, `time`, `comment`) VALUES ('$user', '$date', '$time', '$comment')";
+        $consult = "INSERT INTO comments (`userID`, `date`, `time`, `comment`) VALUES ('$user', '$date', '$time', '$comment')";
         $result = $conecbd->query($consult);
 
         if($result){

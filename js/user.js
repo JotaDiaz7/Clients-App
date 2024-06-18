@@ -146,28 +146,27 @@ function update(){
 
 function delete_comment(){
 
-    document.querySelectorAll('.delete_comment_button').forEach((button_delete)=>{
-        button_delete.onclick = (event) =>{
+    document.querySelectorAll(".form_comment").forEach((form) => {
+        let button = form.querySelector(".delete_comment_button");
+
+        button.onclick = (event) => {
             event.preventDefault();
-    
-            var form_document = document.querySelector('.form_comment');
-    
-            var form_comment = new FormData(form_document);
+
+            var form_comment = new FormData(form);
     
             fetch('../php/delete_comment.php', {
                 method:'POST',
-                body:form_comment,
-                data
+                body:form_comment
             }).then(answer => answer.json())
             .then(delete_comment =>{
                 if(delete_comment == 'deleted_comment'){
-                    document.location.reload();
+                    //document.location.reload();
+                    form.remove();
     
                 }else{
                     console.log('Error_delete_comment');
                 }
             })
-        
         }
     });
 

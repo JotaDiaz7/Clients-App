@@ -20,6 +20,8 @@ INSERT INTO users(user, name, dni) VALUES ('14df', 'Jota Díaz', "74356825Y");
 
 create table comments(
 	userID varchar(10),
-	value varchar(700),
+	comment varchar(700),
+	time varchar(50),
+	date date,
 	constraint userID_fk foreign key (userID) references users(user)
 );
