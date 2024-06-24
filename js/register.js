@@ -51,7 +51,7 @@ function register(){
             }else if(dates_register == 'Error1'){
                 console.log(dates_register);
 
-                document.querySelectorAll('.register_input').forEach(function(input){
+                document.querySelectorAll('.register_input').forEach((input) => {
                     if(input.value == ''){
                         input.classList.add('error');
                     }

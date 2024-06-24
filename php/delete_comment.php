@@ -12,15 +12,19 @@
         $time = $_POST['comment_time'];
         $text = $_POST['comment_text'];
 
-        $consult = "DELETE FROM comments WHERE comment='$text' and `time`='$time'";
-        $result = $conecbd -> query($consult);
+        $consult = "DELETE FROM comments WHERE comment=? and `time`=?";
+        $stmt = $conecbd -> prepare($consult);
 
-        if($result){
-            echo json_encode("deleted_comment");
-            exit;
-        }else{
-            echo json_encode('Error');
-            exit;
+        if($stmt){
+            $stmt->bind_param("ss", $text, $time);
+
+            if($stmt->execute()){
+                echo json_encode("deleted_comment");
+                exit;
+            }else{
+                echo json_encode('Error');
+                exit;
+            }
         }
 
         $conecbd -> close();

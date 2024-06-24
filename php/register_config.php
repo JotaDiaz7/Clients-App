@@ -26,14 +26,20 @@
         $date = htmlspecialchars($_POST['date']);
         //$file = addslashes(file_get_contents($_FILES['file']));
 
-        $consult = "INSERT INTO users (`name`,`address`, `birth`, `dni`, `sex`, `user`, `date`, `phone`) VALUES ('$name', '$address', '$birth', '$dni', '$sex', '$user', '$date', '$phone')";
-        $result = $conecbd->query($consult);
+        $consult = "INSERT INTO users (`name`,`address`, `birth`, `dni`, `sex`, `user`, `date`, `phone`) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
+        $stmt = $conecbd->prepare($consult);
 
-        if($result){
-            echo json_encode("OK");
-        }else{
-            echo json_encode('Error3');
-            exit;
+        if($stmt){
+            $stmt->bind_param("ssssssss", $name, $address, $birth, $dni, $sex, $user, $date, $phone);
+
+            if($stmt->execute()){
+                echo json_encode("OK");
+            }else{
+                echo json_encode('Error3');
+                exit;
+            }
+
+            $stmt->close();
         }
     }
 

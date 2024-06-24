@@ -6,8 +6,6 @@
 
     include_once('config.php');
 
-    $conecbd = new mysqli($serverbd, $userbd, $passbd, $db);
-
     $conecbd -> set_charset('utf8');
 
     if($conecbd->connect_error){
@@ -20,17 +18,22 @@
         $time = htmlspecialchars($_POST['time']);
         //$file = addslashes(file_get_contents($_FILES['file']));
 
-        $consult = "INSERT INTO comments (`userID`, `date`, `time`, `comment`) VALUES ('$user', '$date', '$time', '$comment')";
-        $result = $conecbd->query($consult);
+        $consult = "INSERT INTO comments (`userID`, `date`, `time`, `comment`) VALUES (?, ?, ?, ?)";
+        $stmt = $conecbd->prepare($consult);
 
-        if($result){
-            echo json_encode("OK");
-        }else{
-            echo json_encode('Error3');
-            exit;
+        if($stmt){
+            $stmt->bind_param("ssss", $user, $date, $time, $comment);
+
+            if($stmt->execute()){
+                echo json_encode("OK");
+            }else{
+                echo json_encode('Error3');
+                exit;
+            }
+            $stmt -> close();
         }
 
-
+        $conecbd -> close();
     }
 
 ?>

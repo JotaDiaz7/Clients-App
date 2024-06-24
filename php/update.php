@@ -16,17 +16,23 @@
         $sex = htmlspecialchars(trim($_POST['sex']));
         $address = htmlspecialchars(trim($_POST['address_date']));
 
-        $consult = "UPDATE users SET phone='$phone', `name`='$name', dni='$dni', sex='$sex', `address`='$address' WHERE user='$user'";
+        $consult = "UPDATE users SET phone=?, `name`=?, dni=?, sex=?, `address`=? WHERE user=?";
+        $stmt = $conecbd -> prepare($consult);
 
-        $result = $conecbd -> query($consult);
+        if($stmt){
+            $stmt->bind_param("ssssss", $phone, $name, $dni, $sex, $address, $user);
 
-        if($result){
-            echo json_encode("OK");
-            exit;
-        }else{
-            echo json_encode('Error');
-            exit;
+            if($stmt->execute()){
+                echo json_encode("OK");
+                exit;
+            }else{
+                echo json_encode('Error');
+                exit;
+            }
+
+            $stmt->close();
         }
+
 
         $conecbd -> close();
     }

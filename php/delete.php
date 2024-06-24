@@ -11,18 +11,31 @@
     }else{
         $user = $_POST['delete_user'];
 
-        $consult2 = "DELETE FROM comments WHERE user='$user'";
-        $result2 = $conecbd -> query($consult2);
+        $consult2 = "DELETE FROM comments WHERE userID=?";
+        $stmt2 = $conecbd -> prepare($consult2);
 
-        $consult = "DELETE FROM users WHERE user='$user'";
-        $result = $conecbd -> query($consult);
+        $consult = "DELETE FROM users WHERE user=?";
+        $stmt = $conecbd -> prepare($consult);
 
-        if($result2 and $result){
-            echo json_encode("deleted");
-            exit;
-        }else{
-            echo json_encode('Error');
-            exit;
+        if($stmt2 and $stmt){
+            $stmt2->bind_param("s", $user);
+
+            if($stmt2->execute()){
+                $stmt->bind_param("s", $user);
+                
+                if($stmt->execute()){
+                    echo json_encode("deleted");
+                    exit;
+                }else{
+                    echo json_encode('Error');
+                    exit;
+                }
+            }else{
+                echo json_encode('Error');
+                exit;
+            }
+            $stmt2->close();
+            $stmt->close();
         }
 
         $conecbd -> close();
