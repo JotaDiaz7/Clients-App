@@ -93,7 +93,7 @@
 /* lg applies to medium devices (tablets, less than 992px)*/
 @media (min-width: 991.98px) { 
     main{
-        width: 70%;
+        width: 1000px;
         height: 85%;
         flex-direction: row;
     }
@@ -141,6 +141,9 @@
     }
     .comment_wrap_two{
         width: 75%;
+    }
+    .comments{
+        height: 25%;
     }
 }
 
