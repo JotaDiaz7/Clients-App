@@ -24,13 +24,19 @@
         $phone = htmlspecialchars(trim($_POST['phone']));
         $user = htmlspecialchars($_POST['user']);
         $date = htmlspecialchars($_POST['date']);
-        //$file = addslashes(file_get_contents($_FILES['file']));
 
-        $consult = "INSERT INTO users (`name`,`address`, `birth`, `dni`, `sex`, `user`, `date`, `phone`) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
+        $image = $_FILES['file']['name'];
+        $imageType = $_FILES['file']['type'];
+        $imageSize = $_FILES['file']['size'];
+
+        $sourceFile = $_SERVER['DOCUMENT_ROOT'].'/pictures/';
+        move_uploaded_file($_FILES['file']['tmp_name'], $sourceFile.$image);
+
+        $consult = "INSERT INTO users (`name`,`address`, `birth`, `dni`, `sex`, `user`, `date`, `phone`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conecbd->prepare($consult);
 
         if($stmt){
-            $stmt->bind_param("ssssssss", $name, $address, $birth, $dni, $sex, $user, $date, $phone);
+            $stmt->bind_param("sssssssss", $name, $address, $birth, $dni, $sex, $user, $date, $phone, $image);
 
             if($stmt->execute()){
                 echo json_encode("OK");

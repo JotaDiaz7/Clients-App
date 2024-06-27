@@ -7,7 +7,7 @@
         echo json_encode('Error');
         exit;
     }else{
-        $consult = "SELECT * FROM users";
+        $consult = "SELECT * FROM users order by date desc";
         $result = $conecbd->query($consult);
 
         if($result){

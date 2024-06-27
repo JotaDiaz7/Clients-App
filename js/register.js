@@ -10,7 +10,7 @@ function photo_file(){
     const files = document.querySelectorAll('#file');
 
     Array.from(files).forEach(function(file){
-        file.addEventListener('change', (text)=>{
+        file.addEventListener('change', ()=>{
             var photo = document.getElementById('photo');
             photo.innerHTML = file.files[0].name;
         })

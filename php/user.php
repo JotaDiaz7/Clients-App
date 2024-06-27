@@ -88,13 +88,14 @@
             </section>
             <section class="second2">
                 <?php if($flag == "yes"){ ?>
-                    <div id="wrap" class="">
+                    <form id="wrap_dates" class="">
                         <div id="wrap_img">
-                            <div id="container_img">
-                                <img src="../" alt="">
-                            </div>
+                            <label id="container_img">
+                                <img id="imageDates" src="../pictures/<?php echo $user_date['image']; ?>" alt="">
+                            </label>
+                            <input type="file" name="file" id="file" aria-label="Archivo" class="update hidden" accept="image/*" multiple>
                         </div>
-                        <form id="wrap_dates">
+                        <div id="wrap_dates_main">
                             <div id="wrap_dates_head">
                                 <div class="date">
                                     <label for="name_date">Name:</label>
@@ -121,11 +122,10 @@
                                     <select name="sex" id="sex" aria-placeholder="Sex" class="update">
                                         <option value="<?php echo $user_date['sex']; ?>"><?php echo $user_date['sex']; ?></option>
                                         <?php if($user_date['sex'] == "Woman"){ ?>
-                                        <option value="Man">Man</option>
+                                            <option value="Man">Man</option>
                                         <?php }else{ ?>
-                                        <option value="Woman">Woman</option>
+                                            <option value="Woman">Woman</option>
                                         <?php } ?>
-                                        
                                     </select>                                
                                 </div>
                                 <div class="date">
@@ -149,8 +149,8 @@
                                 <input type="submit" id="send" value="Send" class="submit_dates">
                                 <input type="submit" id="cancel" value="Cancel" class="submit_dates">
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                     <div id="wrap_foot" class="">
                         <form id="form_comments">
                             <div class="hidden">

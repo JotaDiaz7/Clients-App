@@ -17,7 +17,7 @@ body {
 .first1 {
     height: 20vh !important;
 }
-#wrap{
+#wrap_dates{
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@ body {
     object-fit: cover;
     object-position: center;
 }
-#wrap_dates{
+#wrap_dates_main{
     width: 100%;
     height: 60%;
     padding-left: 15px;
@@ -293,6 +293,6 @@ body {
     background: transparent;
     border: none;
 }
-.delete_comment_button i{
+.delete_comment_button i, .updateFile{
     cursor: pointer;
 }

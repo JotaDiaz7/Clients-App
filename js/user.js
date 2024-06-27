@@ -6,6 +6,7 @@ window.addEventListener('load', function(){
     delete_user();
     update();
     delete_comment();
+    changePhoto();
 });
 import {date_register} from './main.js';
 import { timenow } from './main.js';
@@ -36,12 +37,15 @@ function buttons(){
                 update.parentNode.classList.remove('hidden');
             }
         });
+
+        document.getElementById("container_img").classList.add("updateFile");
+        document.getElementById("container_img").setAttribute("for", "file");
     }
 
     document.getElementById('cancel').onclick = (event) => {
         event.preventDefault();
 
-        document.getElementById('buttons_form').classList.remove('hidden');
+        /*document.getElementById('buttons_form').classList.remove('hidden');
         document.getElementById('submit_form').classList.add('hidden');
         document.getElementById('wrap_foot').classList.remove('hidden');
 
@@ -55,7 +59,9 @@ function buttons(){
                 update.parentNode.classList.add('hidden');
             }
 
-        });
+        });*/
+
+        window.location.reload();
     }
 
     document.getElementById('no').onclick = (event) =>{
@@ -169,5 +175,23 @@ function delete_comment(){
             })
         }
     });
+
+}
+
+function changePhoto(){
+
+    var file = document.getElementById("file");
+    var img = document.getElementById("imageDates");
+
+    file.onchange = () => {
+        var selectedFile = file.files[0];
+        if (selectedFile) {
+            var reader = new FileReader();
+            reader.onload = (e) => {
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(selectedFile);
+        }
+    }
 
 }
